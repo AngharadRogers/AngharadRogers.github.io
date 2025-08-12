@@ -1,0 +1,96 @@
+:root {
+    --main-background-colour-rgb: 227, 220, 247;
+    --primary-colour-rgb: 111, 94, 162;
+    --main-background-colour: rgb(var(--main-background-colour-rgb));
+    --primary-colour: rgb(var(--primary-colour-rgb));
+}
+body {
+    display: grid;
+    grid-template: "header header header" "nav content ." "footer footer footer";
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-columns: 1fr 6fr 1fr;
+    overflow: hidden;
+    margin: 0;
+    background-color: var(--main-background-colour);
+    color: var(--primary-colour);
+    font-family: "Figtree", sans-serif;
+    font-weight: 300;
+}
+body::before {
+    content: "Angharad";
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: .8;
+}
+body::after {
+    content: ".tech";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    line-height: .5;
+}
+body::before, body::after {
+    font-family: "Modak", system-ui;
+    font-size: 11.3vw;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    z-index: 0;
+}
+header {
+    grid-area: header;
+    height: 7vw;
+}
+main {
+    grid-area: content;
+    display: grid;
+    overflow: hidden;
+    border-radius: clamp(1rem, 3.33vw, 3rem);/*3em;*/
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.25);
+    z-index: 1;
+}
+article {
+    margin: clamp(1rem, 2.22vw, 2rem) 0;
+    padding: 0 clamp(1rem, 2.22vw, 2rem);
+    overflow: auto;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+h1 {
+    position: sticky;
+    top: 0;
+    font-family: "Rokkitt", serif;
+    font-size: clamp(1.5rem, calc(1rem + 2.22vw), 3rem);
+    font-weight: 900;
+    margin: 0;
+    text-shadow: 3px 0px 0px var(--primary-colour), -3px 0px 0px var(--primary-colour),
+                3px 3px 0px var(--primary-colour), -3px 3px 0px var(--primary-colour),
+                0px 3px 0px var(--primary-colour), 0px -3px 0px var(--primary-colour),
+                3px -3px 0px var(--primary-colour), -3px -3px 0px var(--primary-colour);
+    color: var(--main-background-colour);
+}
+p {
+    font-size: clamp(1rem, calc(.83rem + 0.74vw), 1.5rem);
+}
+date {
+    position: absolute;
+    top: 2.5em;
+    right: 1em;
+    font-size: clamp(0.66rem, calc(0.46rem + 0.874vw), 1.25rem);
+    font-weight: 900;
+    text-shadow: 2px 0px 0px var(--main-background-colour), -2px 0px 0px var(--main-background-colour),
+                2px 2px 0px var(--main-background-colour), -2px 2px 0px var(--main-background-colour),
+                0px 2px 0px var(--main-background-colour), 0px -2px 0px var(--main-background-colour),
+                2px -2px 0px var(--main-background-colour), -2px -2px 0px var(--main-background-colour);
+}
+footer {
+    grid-area: footer;
+    height: 6vw;
+}
+
+max = 3.33vw
+min = 4.44vw
